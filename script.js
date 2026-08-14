@@ -77,7 +77,7 @@ restartButton.addEventListener("click", restartQuiz);
 function startQuiz() {
     //reset vars    
     currentQuestionIndex = 0;
-    score = 0; // FIXED: reset score
+    score = 0; //  reset score
     scoreSpan.textContent = 0;
     startScreen.classList.remove("active");
     quizScreen.classList.add("active");
@@ -96,8 +96,10 @@ function showQuestions() {
     progressBar.style.width = progressPercent + "%";
 
     questionText.textContent = currentQuestion.question;
-
+    
+    // getting rid of the previos answers
     answersContainer.innerHTML = "";
+
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement('button');
         button.textContent = answer.text;
@@ -119,10 +121,11 @@ function selectAnswer(event) {
     const selectedButton = event.target;
     const isCorrect = selectedButton.dataset.correct === "true";
     
+    // for each: gets an array as an in so we need to convert 
     Array.from(answersContainer.children).forEach(button => {
         if (button.dataset.correct === "true") {
             button.classList.add("correct");
-        } else {
+        } else if (button === selectedButton) {
             button.classList.add("incorrect");
         }
     });
@@ -131,9 +134,10 @@ function selectAnswer(event) {
         score++;
         scoreSpan.textContent = score;
     }
-
+    // setting some delay (   ()=> {},wait time  )
     setTimeout(() => {
         currentQuestionIndex++;
+
         //check if there are more questions or if the quiz is over
         if (currentQuestionIndex < quizQuestions.length) {
             showQuestions();
