@@ -1,5 +1,4 @@
 /* Basic Rest */
-
 *{
     margin: 0;
     padding: 0;
@@ -7,9 +6,9 @@
 }
 
 body{
-    background:#f5efe6 ;
+    background: #0f0e17;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 1rem;
@@ -17,17 +16,18 @@ body{
 }
 
 .container{
-    background-color: white;
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
     border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(255, 0, 200, 0.3);
     width: 100%;
     max-width: 600px;
     overflow: hidden;
     position: relative;
+    border: 1px solid rgba(255, 0, 200, 0.2);
 }
 
 /* Screens */
-.screen{             
+.screen{
     display: none;
     padding: 2rem;
     text-align: center;
@@ -39,13 +39,16 @@ body{
 
 /* start screen */
 #start-screen h1{
-    color: #e86a33;
+    background: linear-gradient(135deg, #ff6b6b, #ff6bff, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
     font-size: 2.5rem;
 }
+
 #start-screen p{
     margin-bottom: 1rem;
-    color: #666;
+    color: #a8a8b3;
     font-size: 1.1rem;
 }
 
@@ -54,7 +57,7 @@ body{
 }
 
 #question-text{
-    color: #333;
+    color: #fffffe;
     font-size: 1.5rem;
     margin-bottom: 1rem;
     line-height: 1.4;
@@ -63,8 +66,8 @@ body{
 .quiz-info{
     display: flex;
     justify-content: space-between;
-    color: #666;
-    margin-bottom:10px ;
+    color: #a8a8b3;
+    margin-bottom: 10px;
 }
 
 .answer-container{
@@ -78,27 +81,29 @@ body{
 }
 
 .answer-btn{
-    background-color: #f8f8e5;
-    color: #333;
-    border: 2px solid #f8f8e5;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fffffe;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 1rem;
     cursor: pointer;
     text-align: left;
     transition: all 0.3s ease;
-
+    backdrop-filter: blur(10px);
 }
 
 .answer-btn:hover{
-    background-color: #edd8dd;
-    border-color: #e6d5bc;
+    background: rgba(255, 107, 255, 0.2);
+    border-color: #ff6bff;
+    box-shadow: 0 0 20px rgba(255, 107, 255, 0.2);
 }
 
 /* if it is correct, do: */
-.answer-btn.correct{  
-    background-color:#e6fff0 ;
-    border-color: #a3f0c4;
-    color:#28a745 ;
+.answer-btn.correct{
+    background: rgba(78, 205, 196, 0.2);
+    border-color: #4ecdc4;
+    color: #4ecdc4;
+    box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
 }
 
 .answer-btn.incorrect{
@@ -110,7 +115,7 @@ body{
 /* This is the progress bar container (gray one) */
 .progres-bar{
     height: 10px;
-    background-color:#f8f0e5 ;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     overflow: hidden;
     margin-top: 20px;
@@ -119,7 +124,7 @@ body{
 /*This is the progress it self (orange one) */
 .progress{
     height: 100%;
-    background-color: #e86a33;
+    background: linear-gradient(90deg, #ff6b6b, #ff6bff, #4ecdc4);
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -127,43 +132,47 @@ body{
 /* result screen */
 
 #result-screen h1{
-    color: #e86a33;
+    background: linear-gradient(135deg, #ff6b6b, #ff6bff, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 30px;
 }
 
 .result-info{
-    background-color: #f8f0e5;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.result-info p {
+.result-info p{
     font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 1.3rem;
+    color: #fffffe;
+    margin-bottom: 1rem;
 }
 
 #result-message{
-    color: #e86a33;
+    color: #ff6bff;
     font-size: 1.2rem;
     font-weight: 600;
 }
 
 /*button is for all the buttons*/
 button{
-    background-color: #e86a33;
+    background: linear-gradient(135deg, #ff6b6b, #ff6bff);
     color: white;
     border: none;
     border-radius: 10px;
     padding: 15px 30px;
-    font-size: 1.1rem;    
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 button:hover{
-    background-color: #d45b28;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 107, 255, 0.4);
 }
 
 /*Responsive layout*/
@@ -174,5 +183,4 @@ button:hover{
     #start-screen h1{
         font-size: 2rem;
     }
-
 }
